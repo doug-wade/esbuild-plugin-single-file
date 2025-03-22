@@ -1,0 +1,52 @@
+{
+  "name": "esbuild-plugin-single-file",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "module": "dist/index.mjs",
+  "main": "dist/index.cjs",
+  "scripts": {
+    "build": "yarn run compile && yarn run generate-types",
+    "clean": "rimraf dist/",
+    "compile": "yarn run compile-esm && yarn run compile-commonjs",
+    "compile-esm": "esbuild src/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.mjs",
+    "compile-commonjs": "esbuild src/index.ts --platform=node --packages=external --bundle --format=cjs --outfile=dist/index.cjs",
+    "generate-types": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "watch": "concurrently 'yarn run watch-esm' 'yarn run watch-commonjs'",
+    "watch-esm": "esbuild src/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.mjs --watch",
+    "watch-commonjs": "esbuild src/index.ts --platform=node --packages=external --bundle --format=cjs --outfile=dist/index.cjs --watch"
+  },
+  "dependencies": {
+    "jsdom": "^26.0.0"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.13.10",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.24.2",
+    "rimraf": "^5.0.7",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "esbuild",
+    "plugin"
+  ],
+  "author": "Douglas Wade <douglas.b.wade@gmail.com>",
+  "license": "MIT",
+  "description": "An esbuild plugin for generating a single html file",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doug-wade/esbuild-plugin-single-file.git"
+  },
+  "bugs": {
+    "url": "https://github.com/doug-wade/esbuild-plugin-single-file/issues"
+  },
+  "packageManager": "yarn@4.7.0"
+}
