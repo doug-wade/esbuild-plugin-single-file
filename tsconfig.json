@@ -1,18 +1,18 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "lib": ["ES2023"],
-        "module": "nodenext",
-        "target": "ES2023",
-        "outDir": "dist/types",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "nodenext",
-        "emitDeclarationOnly": true,
-        "declaration": true
-    },
-    "include": ["src/**/*"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ES2023"],
+    "module": "nodenext",
+    "target": "ES2023",
+    "outDir": "dist/types",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "nodenext",
+    "emitDeclarationOnly": true,
+    "declaration": true
+  },
+  "include": ["src/**/*"]
 }
