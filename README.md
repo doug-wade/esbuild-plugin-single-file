@@ -8,7 +8,6 @@ npm install --save-dev esbuild esbuild-plugin-single-file
 
 ## Getting Started
 
-<!-- TODO: Do we need to specify bundle: true? Or can we omit it? -->
 To build:
 
 ```js
